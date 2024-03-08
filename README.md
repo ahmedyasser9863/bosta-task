@@ -47,6 +47,13 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Add a new book with details like title, author, ISBN, available quantity, and shelf location.
 - **Method:** POST
 - **Endpoint:** /addbook
+- **Body:** {
+    "title": "title",
+    "author": "author",
+    "isbn": "132-0-1",
+    "available_quantity":10,
+    "shelf_location":"Upper shelf"
+}
 
 ### Get All Books
 - **Description:** Retrieve a list of all books.
