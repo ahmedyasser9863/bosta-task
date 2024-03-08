@@ -276,3 +276,9 @@ This system helps in managing the library's inventory, keeping track of borrower
     "end_date":"2024-02-15"
 }
 ```
+
+
+## Database Schema
+
+You will find it above under the name Database Schema Diagram, png file
+![Alt Text](Database_Schema_Diagram.png)
