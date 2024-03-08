@@ -56,6 +56,7 @@ This system helps in managing the library's inventory, keeping track of borrower
     "available_quantity":10,
     "shelf_location":"Upper shelf"
 }
+```
 
 ### Get All Books
 - **Description:** Retrieve a list of all books.
@@ -66,16 +67,48 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Retrieve details of a specific book by title, author, or ISBN.
 - **Method:** GET
 - **Endpoint:** /getbook
+- **Body:** 
+```json
+{
+    "search_fields":{
+        "id":1,
+        "title": "title",
+        "author": "author",
+        "isbn": "132-0-1",
+        "available_quantity":10,
+        "shelf_location":"Upper shelf"
+    }
+}
+```
 
 ### Update a Book
 - **Description:** Update details of a specific book.
 - **Method:** POST
 - **Endpoint:** /updatebook
+- **Body:** 
+```json
+{
+    "id":1,
+    "search_fields":{
+        "title": "title",
+        "author": "author",
+        "isbn": "132-0-1",
+        "available_quantity":10,
+        "shelf_location":"Upper shelf"
+    }
+}
+```
 
 ### Delete a Book
 - **Description:** Delete a book from the database.
 - **Method:** POST
 - **Endpoint:** /deletebook
+- **Body:** 
+```json
+{
+    "id":1,
+}
+```
 
 ## Borrowers Endpoints
 
