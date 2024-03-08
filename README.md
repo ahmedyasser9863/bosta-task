@@ -28,14 +28,13 @@ This system helps in managing the library's inventory, keeping track of borrower
 ## Installation
 
 1. Clone this repository.
-2. Install dependencies using `npm install`.
-3. Set up your PostgreSQL database.
-    1. check if you have active database server
+2. Install docker-compose if you do not have it
+3. sudo docker compose build
+4. sudo docker compose up
+5. Set up your PostgreSQL database.
+    1. check bash script databaseCreationScript to create the databases
         1. service postgresql status
-    2. if not there is a bash script called postgresInstallationScript in folder scripts you can run to setup database server but you have to give one parameter which is passowrd to change the passowrd of postgres user
-    3. run bash script databaseCreationScript to create the databases
-4. Start the server: `node index.js`.
-5. NOTE: the db.js file where we connect to the database please change the database credentials to your suitable credentials so it can connect to the database
+6. NOTE: the db.js file where we connect to the database please change the database credentials to your suitable credentials so it can connect to the database
 
 ## Usage
 - **Description:** You need users to use the APIS and below you will find the allowed users credentials

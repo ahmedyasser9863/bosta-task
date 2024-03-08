@@ -66,8 +66,8 @@ class Borrowing {
 
   static async getLateBorroweringsWithDates(body){
     const { start_date,end_date } = body;
-
-    const query = `select borrowings.id,books.title as book_title,books.isbn as book_isbn,borrowers.name as borrower_name,borrowers.email as borrower_email,return_date,returned from borrowings , books, borrowers where books.id=borrowings.book_id and borrowers.id = borrowings.borrower_id and borrowings.returned = false and return_date < now() and borrow_date between ${start_date} and ${end_date} `
+    
+    const query = `select borrowings.id,books.title as book_title,books.isbn as book_isbn,borrowers.name as borrower_name,borrowers.email as borrower_email,return_date,returned from borrowings , books, borrowers where books.id=borrowings.book_id and borrowers.id = borrowings.borrower_id and borrowings.returned = false and return_date < now() and borrow_date between '${start_date}' and '${end_date}' `
     console.log(query)
     const {rows} = await db.query(query)
     if (rows.length ===0){
@@ -91,7 +91,7 @@ class Borrowing {
 
   static async getAllBorroweringsWithDates(body){
     const { start_date,end_date } = body;
-    const query = `select * from ${tableName} where borrow_date between ${start_date} and ${end_date}`
+    const query = `select * from ${tableName} where borrow_date between '${start_date}' and '${end_date}'`
     const { rows } = await db.query(query)
     return rows
   }

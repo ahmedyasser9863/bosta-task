@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Create database and tables
-sudo -u postgres psql -c "CREATE DATABASE library;"
-sudo -u postgres psql -d library -c "
+CONTAINER_ID=$(sudo docker ps | grep 5432 | awk 'NR==1' | awk '{print $1}')
+sudo docker exec -it "$CONTAINER_ID" psql -U postgres postgres <<EOF
+-- Create database and tables
+\c library
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -23,10 +24,11 @@ CREATE TABLE borrowings (
     borrower_id INTEGER REFERENCES borrowers(id),
     borrow_date DATE NOT NULL,
     return_date DATE,
-    returned BOOLEAN DEFAULT TRUE,
+    returned BOOLEAN DEFAULT FALSE,
     actual_return_date DATE
 );
 CREATE INDEX ON books(title);
 CREATE INDEX ON books(author);
-CREATE INDEX ON books(isbn);"
+CREATE INDEX ON books(isbn);
+EOF
 echo "PostgreSQL installation and database setup completed."
