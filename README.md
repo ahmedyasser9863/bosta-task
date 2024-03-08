@@ -33,7 +33,6 @@ This system helps in managing the library's inventory, keeping track of borrower
 4. sudo docker compose up
 5. Set up your PostgreSQL database.
     1. check bash script databaseCreationScript to create the databases
-        1. service postgresql status
 6. NOTE: the db.js file where we connect to the database please change the database credentials to your suitable credentials so it can connect to the database
 
 ## Usage
