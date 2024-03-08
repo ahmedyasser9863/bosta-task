@@ -116,6 +116,14 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Register a new borrower with details like name, email, and registered date.
 - **Method:** POST
 - **Endpoint:** /addborrower
+- **Body:** 
+```json
+{
+    "name": "Ahmed",
+    "email": "email",
+    "registered_date": "2023-01-01"
+}
+```
 
 ### Get All Borrowers
 - **Description:** Retrieve a list of all borrowers.
@@ -126,16 +134,41 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Retrieve details of a specific borrower.
 - **Method:** GET
 - **Endpoint:** /getborrower
+- **Body:** 
+```json
+{
+    "name": "Ahmed",
+    "email": "email",
+    "registered_date": "2023-01-01"
+}
+```
 
 ### Update a Borrower
 - **Description:** Update details of a specific borrower.
 - **Method:** POST
 - **Endpoint:** /updateborrower
+- **Body:** 
+```json
+{
+    "id":1,
+    "search_fields":{
+        "name": "Ahmed",
+        "email": "email",
+        "registered_date": "2023-01-01"
+    }
+}
+```
 
 ### Delete a Borrower
 - **Description:** Delete a borrower from the database.
 - **Method:** POST
 - **Endpoint:** /deleteborrower
+- **Body:** 
+```json
+{
+    "id":1,
+}
+```
 
 ## Borrowings Endpoints
 
@@ -143,6 +176,15 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Record a book borrowing by a borrower.
 - **Method:** POST
 - **Endpoint:** /addborrowing
+- **Body:** 
+```json
+{
+    "book_id": 5,
+    "borrower_id": 2,
+    "borrow_date": "2024-02-01",
+    "return_date":"2024-02-15"
+}
+```
 
 ### Get All Borrowings
 - **Description:** Retrieve a list of all borrowing records.
@@ -153,6 +195,16 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Retrieve borrowing records of a specific borrower.
 - **Method:** GET
 - **Endpoint:** /getborrowerborrowings
+- **Body:** 
+```json
+{   "search_fields":{
+        "book_id": 5,
+        "borrower_id": 2,
+        "borrow_date": "2024-02-01",
+        "return_date":"2024-02-15"
+    }
+}
+```
 
 ### Get Late Borrowings
 - **Description:** Retrieve borrowing records that are overdue.
@@ -163,16 +215,43 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Delete a borrowing record.
 - **Method:** POST
 - **Endpoint:** /deleteborrowing
+- **Body:** 
+```json
+{
+    "id":1,
+}
+```
 
 ### Return a Book
 - **Description:** Mark a borrowing record as returned.
 - **Method:** POST
 - **Endpoint:** /closeborrowing
+- **Body:** 
+```json
+{
+    "return_date": "2024-02-15",
+    "return_fields":{
+        "id":1
+    }
+}
+```
 
 ### Update a Borrowing
 - **Description:** Update details of a borrowing record.
 - **Method:** POST
 - **Endpoint:** /updateborrowing
+- **Body:** 
+```json
+{
+    "id":1,
+    "search_fields":{
+        "book_id": 5,
+        "borrower_id": 2,
+        "borrow_date": "2024-02-01",
+        "return_date":"2024-02-15"
+    }
+}
+```
 
 ## Reports Endpoints
 
@@ -180,8 +259,20 @@ This system helps in managing the library's inventory, keeping track of borrower
 - **Description:** Retrieve a report of late borrowing records.
 - **Method:** GET
 - **Endpoint:** /getreportslateborrowerings
+```json
+{
+    "start_date": "2024-02-01",
+    "end_date":"2024-02-15"
+}
+```
 
 ### Get All Borrowings Report
 - **Description:** Retrieve a report of all borrowing records.
 - **Method:** GET
 - **Endpoint:** /getreportsallborrowerings
+```json
+{
+    "start_date": "2024-02-01",
+    "end_date":"2024-02-15"
+}
+```
