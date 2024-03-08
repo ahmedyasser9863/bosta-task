@@ -37,6 +37,23 @@ This system helps in managing the library's inventory, keeping track of borrower
 4. Start the server: `node index.js`.
 5. NOTE: the db.js file where we connect to the database please change the database credentials to your suitable credentials so it can connect to the database
 
+## Usage
+- **Description:** You need users to use the APIS and below you will find the allowed users credentials
+- **Users:**
+```json
+{
+    "username": "password",
+    "username2": "password2",
+    "username3": "password3",
+    "username4": "password4",
+
+}
+```
+
+## Database Schema
+
+You will find it above under the name Database Schema Diagram, png file
+![Alt Text](Database_Schema_Diagram.png)
 
 ## API Endpoints
 
@@ -278,7 +295,3 @@ This system helps in managing the library's inventory, keeping track of borrower
 ```
 
 
-## Database Schema
-
-You will find it above under the name Database Schema Diagram, png file
-![Alt Text](Database_Schema_Diagram.png)
